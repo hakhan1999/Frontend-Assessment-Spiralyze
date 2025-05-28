@@ -599,7 +599,7 @@ form {
   content: "";
   display: block;
   height: 0.063rem;
-  width: 48rem;
+  width: 50.813rem;
   position: absolute;
   right: 0;
   top: 50%;
@@ -657,6 +657,7 @@ button.secondary-btn a:active {
   display: flex !important;
   align-items: center;
   gap: 2.25rem;
+  margin-left: -0.063rem;
 }
 
 .testimonials-sec .item .image {
@@ -770,6 +771,22 @@ ul.slick-dots li button::before {
 .organize-sec {
   padding-top: calc(4.25rem + 5rem);
   padding-bottom: 6.25rem;
+}
+
+.organize-sec h2:before {
+  content: "";
+  display: block;
+  height: 0.063rem;
+  width: 33.25rem;
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--faded-color);
+}
+
+.organize-sec h2 {
+  position: relative;
 }
 
 .organize-sec .top-content-grid .box.first p {
@@ -954,6 +971,10 @@ ul.slick-dots li button::before {
   width: 100%;
   object-fit: cover;
   height: 100%;
+}
+
+.video-sec .wrapper .col-2 .logo-div img {
+  width: 14.131rem;
 }
 
 .shape-1 {
