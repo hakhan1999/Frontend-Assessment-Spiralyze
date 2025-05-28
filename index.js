@@ -1,0 +1,107 @@
+document.addEventListener('DOMContentLoaded', function () {
+    initPopupVideo();
+    initFormErrorFocus();
+    initCountrySelectWithPlaceholderClass();
+});
+
+
+// 1. Initialize popup video logic
+function initPopupVideo() {
+    const popup = document.querySelector('.popup-video');
+    const body = document.body;
+    const popupOpen = document.querySelector('.play-btn');
+    const popupClose = document.querySelector('.close');
+    const video = popup?.querySelector('video');
+
+    if (popup && popupOpen && popupClose && video) {
+        popupOpen.addEventListener('click', () => {
+            body.classList.add('popupOpened');
+            popup.classList.add('popupActive');
+            video.currentTime = 0;
+            video.play();
+        });
+
+        popupClose.addEventListener('click', () => {
+            body.classList.remove('popupOpened');
+            popup.classList.remove('popupActive');
+            video.pause();
+            video.currentTime = 0;
+        });
+    }
+}
+
+// 2. Focus on the first error input field on submit
+function initFormErrorFocus() {
+    const submitBtn = document.querySelector('.submit-btn button');
+    submitBtn?.addEventListener('click', function (event) {
+        event.preventDefault();
+        const errorInput = document.querySelector('.error-field input');
+        if (errorInput) {
+            errorInput.focus();
+        }
+    });
+}
+
+// 3. Enhanced country-select placeholder logic
+function initCountrySelectWithPlaceholderClass() {
+    const select = document.getElementById('country');
+    if (!select) return;
+
+    function togglePlaceholderClass() {
+        const container = select.nextElementSibling;
+        if (!container) return;
+        if (select.value && select.value.length > 0) {
+            container.classList.add('select2-has-value');
+        } else {
+            container.classList.remove('select2-has-value');
+        }
+    }
+
+    togglePlaceholderClass();
+    select.addEventListener('change', togglePlaceholderClass);
+}
+
+// Select 2 and SLick Carousel 
+document.addEventListener('DOMContentLoaded', function () {
+    if (window.jQuery) {
+        $('#country').select2({
+            placeholder: "Country",
+            width: 'resolve'
+        });
+
+        $('.carousel-wrapper').slick({
+            dots: true,
+            arrows: true,
+            infinite: false,
+            autoplay: true,
+            speed: 1500,
+            loop: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        infinite: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+    }
+});
