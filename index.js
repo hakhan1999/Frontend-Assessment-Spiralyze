@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
     initCountrySelectWithPlaceholderClass();
     initMobileMenu();
     initAddClassHeader();
+    initCarousel();
+    initCustomSelect();
 });
 
 
@@ -88,47 +90,90 @@ function initAddClassHeader() {
     })
 }
 
-// Select 2 and SLick Carousel 
-document.addEventListener('DOMContentLoaded', () => {
-    if (window.jQuery) {
-        $('#country').select2({
-            placeholder: "Country",
-            width: 'resolve'
-        });
+// 6. Testimonials Carousel 
+function initCarousel() {
+    const wrapper = document.querySelector(".carousel-wrapper");
+    if (!wrapper) return;
 
-        $('.carousel-wrapper').slick({
-            dots: true,
-            arrows: true,
-            infinite: false,
-            autoplay: true,
-            speed: 1500,
-            loop: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            responsive: [
-                {
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        infinite: true
-                    }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }
-            ]
+    const items = document.querySelectorAll(".item");
+    const prevBtn = document.querySelector(".prev-btn");
+    const nextBtn = document.querySelector(".next-btn");
+    const dots = document.querySelectorAll(".carousel-dots .dot");
+
+    let currentIndex = 0;
+    const totalItems = items.length;
+
+    const track = document.createElement("div");
+    track.classList.add("carousel-track");
+    wrapper.appendChild(track);
+
+    items.forEach(item => track.appendChild(item));
+
+    track.style.display = "flex";
+    track.style.transition = "transform 1s ease-out";
+    items.forEach(item => {
+        item.style.minWidth = "100%";
+        item.style.boxSizing = "border-box";
+    });
+
+    function updateCarousel() {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        dots.forEach((dot, index) => {
+            dot.classList.toggle("active", index === currentIndex);
         });
     }
-});
+
+    prevBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+        updateCarousel();
+    });
+
+    nextBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % totalItems;
+        updateCarousel();
+    });
+
+    dots.forEach(dot => {
+        dot.addEventListener("click", () => {
+            currentIndex = parseInt(dot.dataset.index);
+            updateCarousel();
+        });
+    });
+
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % totalItems;
+        updateCarousel();
+    }, 5000);
+
+    updateCarousel();
+}
+
+// 7. Custom Select 
+function initCustomSelect() {
+    const select = document.querySelector(".custom-select");
+    const selected = select.querySelector(".select-selected");
+    const items = select.querySelector(".select-items");
+    const input = select.querySelector("input");
+
+    selected.addEventListener("click", () => {
+        items.classList.toggle("select-hide");
+        selected.classList.toggle("select-arrow-active");
+    });
+
+    items.querySelectorAll("div").forEach(option => {
+        option.addEventListener("click", () => {
+            selected.textContent = option.textContent;
+            selected.style.color = "white";
+            input.value = option.dataset.value;
+            items.classList.add("select-hide");
+            selected.classList.remove("select-arrow-active");
+        });
+    });
+
+    document.addEventListener("click", function (e) {
+        if (!select.contains(e.target)) {
+            items.classList.add("select-hide");
+            selected.classList.remove("select-arrow-active");
+        }
+    });
+}
