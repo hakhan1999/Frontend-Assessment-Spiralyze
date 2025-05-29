@@ -47,7 +47,17 @@
     </header>
     <section class="hero-sec container">
       <div class="bg-image">
-        <img src="images/hero-bg.webp" alt="Hero-Bg-Image" />
+        <picture>
+          <source
+            media="(max-width: 360px)"
+            srcset="images/hero-mobile-bg.webp"
+          />
+          <source
+            media="(max-width: 768px)"
+            srcset="images/hero-tablet-bg.webp"
+          />
+          <img src="images/hero-bg.webp" alt="Hero-Bg-Image" />
+        </picture>
       </div>
       <div class="wrapper">
         <div class="col-1">
@@ -306,16 +316,16 @@
       <div class="wrapper">
         <div class="top-images-sec">
           <img
+            src="images/we-understand-image-3.webp"
+            alt="We Understand Image 3"
+          />
+          <img
             src="images/we-understand-image-1.webp"
             alt="We Understand Image 1"
           />
           <img
             src="images/we-understand-image-2.webp"
             alt="We Understand Image 2"
-          />
-          <img
-            src="images/we-understand-image-3.webp"
-            alt="We Understand Image 3"
           />
         </div>
         <div class="bottom-content-sec">
@@ -324,39 +334,43 @@
             Understand
           </h2>
           <div class="content-grid">
-            <div class="box">
-              <p>
-                Older adults want to play active and meaningful roles in their
-                lives, including as part of a social network, a neighborhood,
-                and a community. Service providers and policymakers must
-                consider that a lack of sense of purpose can become problematic
-                as people age. Engaging them in leisure activities and volunteer
-                work is important.
-              </p>
+            <div class="left-content">
+              <div class="box">
+                <p>
+                  Older adults want to play active and meaningful roles in their
+                  lives, including as part of a social network, a neighborhood,
+                  and a community. Service providers and policymakers must
+                  consider that a lack of sense of purpose can become
+                  problematic as people age. Engaging them in leisure activities
+                  and volunteer work is important.
+                </p>
+              </div>
+              <div class="box">
+                <p>
+                  Older adults want to stay active and contribute to society in
+                  a reciprocal manner (meaning that they want to exchange their
+                  services and skills with others for the mutual benefit of the
+                  neighborhood or community). Qualitative and quantitative
+                  studies published from 2005 to 2016 examining the social needs
+                  of older adults were eligible for inclusion.
+                </p>
+              </div>
             </div>
-            <div class="box">
-              <p>
-                Older adults want to stay active and contribute to society in a
-                reciprocal manner (meaning that they want to exchange their
-                services and skills with others for the mutual benefit of the
-                neighborhood or community). Qualitative and quantitative studies
-                published from 2005 to 2016 examining the social needs of older
-                adults were eligible for inclusion.
-              </p>
-            </div>
-            <div class="box last">
-              <p>
-                To stimulate social contacts, neighborhood initiatives can be
-                developed. Social meeting places, such as pubs and churches can
-                help to foster the development of close and peripheral
-                relationships.
-              </p>
-              <button class="secondary-btn icon">
-                <a href="#">
-                  <span>92% Success Rate</span>
-                  <img src="images/arrow.svg" alt="Arrow" />
-                </a>
-              </button>
+            <div class="right-content">
+              <div class="box last">
+                <p>
+                  To stimulate social contacts, neighborhood initiatives can be
+                  developed. Social meeting places, such as pubs and churches
+                  can help to foster the development of close and peripheral
+                  relationships.
+                </p>
+                <button class="secondary-btn icon">
+                  <a href="#">
+                    <span>92% Success Rate</span>
+                    <img src="images/arrow.svg" alt="Arrow" />
+                  </a>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -568,15 +582,23 @@
               </div>
             </div>
           </div>
-          <!-- <div class="shape-1">
-            <img src="images/video-sec-shape-1.svg" alt="Shape-1" />
-          </div>
-          <div class="shape-2">
-            <img src="images/video-sec-shape-2.svg" alt="Shape-2" />
-          </div> -->
         </div>
         <div class="col-2">
-          <img src="images/video-bg-image.webp" alt="Video Background Image" />
+          <picture>
+            <source
+              media="(max-width: 360px)"
+              srcset="images/video-bg-mobile-image.webp"
+            />
+            <source
+              media="(max-width: 768px)"
+              srcset="images/video-bg-tablet-image.webp"
+            />
+            <img
+              src="images/video-bg-image.webp"
+              alt="Video Background Image"
+            />
+          </picture>
+
           <div class="logo-div">
             <img src="images/video-logo.svg" alt="Logo" />
           </div>

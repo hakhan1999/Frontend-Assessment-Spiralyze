@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
             dots: true,
             arrows: true,
             infinite: false,
-            autoplay: true,
+            // autoplay: true,
             speed: 1500,
             loop: true,
             slidesToShow: 1,
