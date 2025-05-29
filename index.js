@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', function () {
     initPopupVideo();
     initFormErrorFocus();
     initCountrySelectWithPlaceholderClass();
+    initMobileMenu();
+    initAddClassHeader();
 });
 
 
@@ -33,7 +35,7 @@ function initPopupVideo() {
 // 2. Focus on the first error input field on submit
 function initFormErrorFocus() {
     const submitBtn = document.querySelector('.submit-btn button');
-    submitBtn?.addEventListener('click', function (event) {
+    submitBtn?.addEventListener('click', (event) => {
         event.preventDefault();
         const errorInput = document.querySelector('.error-field input');
         if (errorInput) {
@@ -61,8 +63,33 @@ function initCountrySelectWithPlaceholderClass() {
     select.addEventListener('change', togglePlaceholderClass);
 }
 
+// 4. Open Mobile Menu on Hamburger Click 
+function initMobileMenu() {
+    const toggle = document.querySelector(".mobile-menu-toggle");
+    const menu = document.querySelector(".menu-container");
+
+    const hamburgerIcon = "images/hamburger.svg";
+    const closeIcon = "images/close.webp";
+
+    toggle.addEventListener("click", () => {
+        const isActive = menu.classList.contains("active");
+        menu.classList.toggle("active");
+        toggle.src = isActive ? hamburgerIcon : closeIcon;
+    });
+}
+
+// 5. Add class on header after mobile hamburger clicked 
+function initAddClassHeader() {
+    const toggle = document.querySelector(".mobile-menu-toggle");
+    const header = document.querySelector('header')
+
+    toggle.addEventListener('click', () => {
+        header.classList.toggle('header-bg')
+    })
+}
+
 // Select 2 and SLick Carousel 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
     if (window.jQuery) {
         $('#country').select2({
             placeholder: "Country",
