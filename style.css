@@ -1,7 +1,7 @@
 /* Fonts  */
 @font-face {
   font-family: "Montserrat";
-  src: url("/fonts/Montserrat-Black.woff2") format("woff2");
+  src: url("./fonts/Montserrat-Black.woff2") format("woff2");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -9,7 +9,7 @@
 
 @font-face {
   font-family: "Montserrat";
-  src: url("/fonts/Montserrat-Thin.woff2") format("woff2");
+  src: url("./fonts/Montserrat-Thin.woff2") format("woff2");
   font-weight: 100;
   font-style: normal;
   font-display: swap;
@@ -17,7 +17,7 @@
 
 @font-face {
   font-family: "Montserrat";
-  src: url("/fonts/Montserrat-Bold.woff2") format("woff2");
+  src: url("./fonts/Montserrat-Bold.woff2") format("woff2");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -25,7 +25,7 @@
 
 @font-face {
   font-family: "Montserrat";
-  src: url("/fonts/Montserrat-SemiBold.woff2") format("woff2");
+  src: url("./fonts/Montserrat-SemiBold.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -33,7 +33,7 @@
 
 @font-face {
   font-family: "Montserrat";
-  src: url("/fonts/Montserrat-Light.woff2") format("woff2");
+  src: url("./fonts/Montserrat-Light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -41,7 +41,7 @@
 
 @font-face {
   font-family: "Montserrat";
-  src: url("/fonts/Montserrat-Regular.woff2") format("woff2");
+  src: url("./fonts/Montserrat-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -49,7 +49,7 @@
 
 @font-face {
   font-family: "Montserrat";
-  src: url("/fonts/Montserrat-ExtraBold.woff2") format("woff2");
+  src: url("./fonts/Montserrat-ExtraBold.woff2") format("woff2");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -57,7 +57,7 @@
 
 @font-face {
   font-family: "Montserrat";
-  src: url("/fonts/Montserrat-Medium.woff2") format("woff2");
+  src: url("./fonts/Montserrat-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -65,7 +65,7 @@
 
 @font-face {
   font-family: "Montserrat";
-  src: url("/fonts/Montserrat-ExtraLight.woff2") format("woff2");
+  src: url("./fonts/Montserrat-ExtraLight.woff2") format("woff2");
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -78,13 +78,13 @@ html {
   overflow-x: hidden;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   html {
     font-size: 2.083333333vw;
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 600px) {
   html {
     font-size: 4.444444444vw;
   }
@@ -1264,7 +1264,7 @@ section.thank-you-section .wrapper h2 {
 }
 
 /* Media Query for Tablet Devices  */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .container {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -1553,7 +1553,7 @@ section.thank-you-section .wrapper h2 {
 }
 
 /* Media Query for Mobile Devices  */
-@media (max-width: 360px) {
+@media (max-width: 600px) {
   .container {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -1669,6 +1669,7 @@ section.thank-you-section .wrapper h2 {
 
   .hero-sec:before {
     background-image: url(images/hero-mobile-shape.svg);
+    bottom: -0.125rem;
   }
 
   .hero-sec:after {
@@ -1888,10 +1889,12 @@ section.thank-you-section .wrapper h2 {
 
   .video-sec .wrapper .col-1::before {
     background: url(images/video-sec-shape-1-mobile.svg) no-repeat center bottom;
+    background-size: cover;
   }
 
   .video-sec .wrapper .col-1::after {
     background: url(images/video-sec-shape-2-mobile.svg) no-repeat center bottom;
+    background-size: cover;
   }
 
   .play-btn .top-circle {
