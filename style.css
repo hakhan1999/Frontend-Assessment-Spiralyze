@@ -174,13 +174,14 @@ h3 {
   line-height: 100%;
   color: #fff;
   text-align: center;
+  font-weight: 600;
 }
 
 h4 {
   font-size: 1.5rem;
   line-height: 2.125rem;
   color: #fff;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 p {
@@ -253,14 +254,14 @@ header .wrapper .col-2 .menu-sec ul li a:hover {
 }
 
 header .wrapper .col-2 .menu-sec ul li.active a {
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: underline;
   color: #fff;
 }
 
 header .wrapper .col-2 .contact-number a {
   font-size: 0.875rem;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 2.563rem;
   color: #ffffff;
 }
@@ -394,7 +395,8 @@ form {
   z-index: 1;
 }
 
-.form-group .field input:focus + label {
+.form-group .field input:focus + label,
+.form-group .field.has-text label {
   top: 0;
   font-size: 0.813rem;
   color: #fff;
@@ -414,6 +416,16 @@ form {
   z-index: 2;
   border-radius: 0.5rem;
   bottom: -5.1rem;
+  transition: all 0.4s ease-out;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.field.error-field .error-box {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
 }
 
 .error-box p {
@@ -486,7 +498,7 @@ select#country {
   box-shadow: 0px 4px 6px 0px #00000014;
   border-radius: 0.25rem;
   font-size: 1.125rem;
-  font-weight: 700;
+  font-weight: 600;
   color: #fff;
   transition: all 0.4s ease-out;
 }
@@ -619,7 +631,7 @@ button.secondary-btn a {
   border-radius: 0.25rem;
   line-height: 1.75rem;
   font-size: 1.125rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--primary-color);
   transition: all 0.4s ease-out;
 }
@@ -677,6 +689,7 @@ button.secondary-btn a:active {
   color: #fff;
   margin-top: 1rem;
   line-height: 1.75rem;
+  font-weight: 300;
 }
 
 .testimonials-sec .item .content img {
@@ -722,7 +735,7 @@ button.secondary-btn a:active {
 }
 
 .organize-sec .top-content-grid .box.first p strong {
-  font-weight: 700;
+  font-weight: 800;
   color: var(--text-color);
 }
 
@@ -1110,7 +1123,7 @@ section.thank-you-section {
   justify-content: center;
   height: 100vh;
   align-items: center;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 section.thank-you-section .wrapper {
@@ -1181,6 +1194,7 @@ button.arrows.next-btn {
   height: 1rem;
   background: var(--faded-color);
   border-radius: 100%;
+  cursor: pointer;
 }
 
 .carousel-dots .dot.active {
@@ -1215,7 +1229,6 @@ button.arrows.next-btn {
 .select-items {
   position: absolute;
   background-color: white;
-  border: 1px solid #ccc;
   width: 100%;
   z-index: 99;
   max-height: 9.375rem;
@@ -1254,6 +1267,15 @@ button.arrows.next-btn {
   border-style: solid;
   border-width: 5px 4.33px 0 4.33px;
   border-color: #fff transparent transparent transparent;
+}
+
+.thank-you-section button.secondary-btn {
+  width: fit-content;
+}
+
+.thank-you-section button.secondary-btn a {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 /* Media Query for Tablet Devices  */
@@ -1297,6 +1319,8 @@ button.arrows.next-btn {
     font-size: 1.125rem;
     line-height: 1.75rem;
     margin-bottom: 0.5rem;
+    font-weight: 300;
+    color: #ffffffcc;
   }
 
   .hero-sec p br {
@@ -1333,6 +1357,7 @@ button.arrows.next-btn {
 
   .we-understand-sec .bottom-content-sec .content-grid .box.last p {
     margin-bottom: 2.125rem;
+    min-height: 12rem;
   }
 
   .we-understand-sec .bottom-content-sec .content-grid {
@@ -1542,6 +1567,10 @@ button.arrows.next-btn {
 
   .close {
     right: 0;
+  }
+
+  .video-sec .wrapper .col-1 .details .box .right-text p br {
+    display: none;
   }
 }
 
@@ -1781,7 +1810,7 @@ button.arrows.next-btn {
   }
 
   .organize-sec {
-    padding-top: calc(4.25rem + 5rem);
+    padding-top: 5.313rem;
     padding-bottom: 5rem;
   }
 
@@ -1936,6 +1965,24 @@ button.arrows.next-btn {
 
   .header-bg {
     background: #194d44;
+  }
+
+  .carousel-wrapper {
+    overflow: visible;
+  }
+
+  .video-sec .wrapper .col-1 .details .box .right-text p br {
+    display: none;
+  }
+
+  section.thank-you-section .wrapper {
+    width: 100%;
+    height: 25rem;
+  }
+
+  .we-understand-sec .bottom-content-sec .content-grid .box.last p {
+    margin-bottom: 2.125rem;
+    min-height: 100%;
   }
 }
 

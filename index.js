@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
     initAddClassHeader();
     initCarousel();
     initCustomSelect();
+    initFormValidaton();
+    initLabelStickToTop();
 });
 
 
@@ -176,4 +178,53 @@ function initCustomSelect() {
             selected.classList.remove("select-arrow-active");
         }
     });
+}
+
+// 8. Form Validation 
+function initFormValidaton() {
+    const fields = document.querySelectorAll('.field');
+    fields.forEach(field => {
+        const input = field.querySelector('input');
+        input.addEventListener('input', function () {
+            if (input.value.trim() !== '') {
+                field.classList.remove('error-field');
+            }
+        });
+    });
+    document.querySelector('.submit-btn').addEventListener('click', function (e) {
+        e.preventDefault();
+        let allFilled = true;
+
+        fields.forEach(field => {
+            const input = field.querySelector('input');
+            if (!input.value.trim()) {
+                field.classList.add('error-field');
+                allFilled = false;
+            }
+        });
+
+        if (allFilled) {
+            window.location.href = 'thank-you.html';
+        }
+    });
+}
+
+// 9. Make label stick on top after filling the field 
+function initLabelStickToTop() {
+    document.querySelectorAll('.field input').forEach(input => {
+        const field = input.closest('.field');
+
+        const updateClass = () => {
+            if (input.value.trim() !== '') {
+                field.classList.add('has-text');
+            } else {
+                field.classList.remove('has-text');
+            }
+        };
+
+        updateClass();
+
+        input.addEventListener('input', updateClass);
+    });
+
 }
